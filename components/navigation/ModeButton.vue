@@ -1,0 +1,43 @@
+<template>
+  <div>
+    <v-icon
+      class="tw-text-white"
+      :icon="
+        mode === 'tw-light' ? 'mdi-weather-night' : 'mdi-white-balance-sunny'
+      "
+      @click="darkMode()"
+    ></v-icon>
+  </div>
+</template>
+
+<script setup>
+import { onMounted, ref, watch } from "vue";
+import { useDisplay, useTheme } from "vuetify";
+
+const { mdAndUp } = useDisplay();
+const theme = useTheme();
+const mode = ref("tw-light");
+onMounted(() => {
+  localStorage.theme = "tw-light"; // 初始为light模式
+  mode.value = localStorage.getItem("theme");
+});
+// 观测 Vuetify 的 mdAndUp(960px),发生改变时重新设置 mode 的值
+// 确保不同分辨率下的模式切换 icon 正确
+watch(mdAndUp, () => {
+  mode.value = localStorage.getItem("theme");
+});
+const darkMode = () => {
+  if (theme.global.current.value.dark) {
+    theme.global.name.value = "light";
+    document.documentElement.classList.remove("tw-dark");
+    localStorage.theme = "tw-light";
+  } else {
+    theme.global.name.value = "dark";
+    document.documentElement.classList.add("tw-dark");
+    localStorage.theme = "tw-dark";
+  }
+  mode.value = localStorage.getItem("theme");
+};
+</script>
+
+<style scoped></style>

@@ -1,1 +1,13 @@
-{}
+{
+  "title": "風の住む街",
+  "navigation": {
+    "lifeNotes": "Life Notes",
+    "learning": "Voyage Through Learning",
+    "reading": "Reading",
+    "photos": {
+      "title": "photos",
+      "photography": "photography",
+      "visualImpressions": "Visual Impressions"
+    }
+  }
+}

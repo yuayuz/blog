@@ -7,7 +7,7 @@ import { defineI18nConfig } from "#i18n";
 export default defineI18nConfig(() => ({
   legacy: false,
   locales: ["en", "zhHans"],
-  defaultLocale: "en",
+  defaultLocale: "zhHans",
   messages: {
     en: Object.assign({}, vuetifyEn, en),
     zhHans: Object.assign({}, vuetifyZhHans, zhHans),
