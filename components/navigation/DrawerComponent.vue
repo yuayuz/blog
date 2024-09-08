@@ -6,18 +6,22 @@
     <div
       class="tw-rounded-xl tw-border tw-px-4 tw-py-10 tw-shadow dark:tw-bg-violet-800"
     >
-      <div class="tw-cursor-pointer tw-py-4 tw-text-center tw-text-3xl">
-        {{ t(message["title"]) }}
+      <div
+        class="tw-cursor-pointer tw-py-4 tw-text-center tw-text-3xl"
+        @click="navigate(pages['home'].navigation)"
+      >
+        {{ t(pages["home"].title) }}
       </div>
       <hr />
       <div class="tw-my-4 tw-space-y-2 tw-text-center tw-text-2xl">
         <v-btn
-          v-for="n in message['buttons'].length"
+          v-for="n in pages['buttons'].length"
           :key="n"
           class="tw-w-full tw-px-6 tw-py-2 hover:tw-text-purple-900 dark:hover:tw-text-pink-400"
           variant="text"
+          @click="navigate(pages['buttons'][n - 1].navigation)"
         >
-          {{ t(message["buttons"][n - 1].title) }}
+          {{ t(pages["buttons"][n - 1].title) }}
         </v-btn>
       </div>
       <div class="tw-mx-auto tw-w-fit tw-space-y-5">
@@ -48,27 +52,11 @@
 
 <script setup lang="ts">
 import { ref, useI18n, watch } from "#imports";
+import { pages } from "~/assets/navigation";
 import I18nMune from "~/components/navigation/I18nMune.vue";
 import ModeButton from "~/components/navigation/ModeButton.vue";
-import type { Navigation } from "~/types/navigation";
+import { navigate } from "~/utils/navigation";
 
-const message: Navigation = {
-  title: "title",
-  buttons: [
-    {
-      title: "navigation.lifeNotes",
-    },
-    {
-      title: "navigation.learning",
-    },
-    {
-      title: "navigation.reading",
-    },
-    {
-      title: "navigation.photos.title",
-    },
-  ],
-};
 const { t } = useI18n();
 const isOpen = ref(true);
 const model = defineModel("isOpen");

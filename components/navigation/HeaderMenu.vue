@@ -1,6 +1,12 @@
 <template>
   <div :hidden="!isOpen" class="tw-mt-20 tw-space-y-5 tw-px-8">
-    <menu-button v-for="n in props.buttons.length" :key="n"
+    <menu-button
+      v-for="n in props.buttons.length"
+      :key="n"
+      @click="
+        navigate(props.buttons[n - 1].navigation);
+        isOpen = false;
+      "
       >{{ t(props.buttons[n - 1].title) }}
     </menu-button>
   </div>
@@ -10,6 +16,7 @@
 import { useI18n } from "#imports";
 import MenuButton from "~/components/navigation/MenuButton.vue";
 import type { NavigationButton } from "~/types/navigation";
+import { navigate } from "~/utils/navigation";
 
 const { t } = useI18n();
 

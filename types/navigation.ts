@@ -1,7 +1,11 @@
-export type NavigationButton = { img?: string; title: string };
+export type NavigationButton = {
+  img?: string;
+  title: string;
+  navigation?: string;
+};
 
 export type Navigation = {
   img?: string;
-  title: string;
+  home: NavigationButton;
   buttons: NavigationButton[];
 };

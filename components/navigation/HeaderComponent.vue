@@ -7,7 +7,10 @@
     <div
       class="tw-mx-auto tw-flex tw-max-w-screen-2xl tw-items-center tw-justify-between tw-px-6"
     >
-      <div>{{ t(message["title"]) }}</div>
+      <div @click="navigate(pages['home'].navigation)">
+        {{ t(pages["home"].title) }}
+      </div>
+
       <div class="tw-flex tw-items-center tw-space-x-3">
         <mode-button />
         <v-icon
@@ -19,33 +22,16 @@
       </div>
     </div>
   </div>
-  <header-menu v-model="isOpen" :buttons="message['buttons']" />
+  <header-menu v-model="isOpen" :buttons="pages['buttons']" />
 </template>
 
 <script setup lang="ts">
-import { useI18n } from "#imports";
+import { navigate, useI18n } from "#imports";
+import { pages } from "~/assets/navigation";
 import HeaderMenu from "~/components/navigation/HeaderMenu.vue";
 import I18nMune from "~/components/navigation/I18nMune.vue";
 import ModeButton from "~/components/navigation/ModeButton.vue";
-import type { Navigation } from "~/types/navigation";
 
-const message: Navigation = {
-  title: "title",
-  buttons: [
-    {
-      title: "navigation.lifeNotes",
-    },
-    {
-      title: "navigation.learning",
-    },
-    {
-      title: "navigation.reading",
-    },
-    {
-      title: "navigation.photos.title",
-    },
-  ],
-};
 const { t } = useI18n();
 // 使用 v-model 通知导航布局菜单是否打开
 const isOpen = defineModel("isOpen");
