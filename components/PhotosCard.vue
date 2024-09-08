@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="tw-mx-auto tw-w-11/12">
     <v-container>
       <v-row class="tw-flex tw-flex-1">
         <v-col v-for="n in 9" :key="n" cols="12" md="4" class="tw-my-6">

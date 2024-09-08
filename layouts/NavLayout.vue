@@ -14,7 +14,7 @@
   <div class="tw-mx-auto tw-hidden tw-max-w-screen-2xl md:tw-flex">
     <drawer-component v-model:is-open="isOpen" />
     <!-- 根据接收的 isOpen 决定是否隐藏主页面,以此改变 main 区域的大小 -->
-    <div :class="['tw-w-full tw-py-4', isOpen ? 'tw-ml-80' : 'tw-ml-10']">
+    <div :class="['tw-w-full tw-py-4', { 'tw-ml-64': isOpen }]">
       <slot />
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="tw-mx-auto tw-w-11/12">
     <div class="tw-px-4 tw-py-2">
       <div class="tw-mb-4 tw-text-4xl">{{ props.title }}</div>
       <div class="tw-text-base">{{ date }}</div>

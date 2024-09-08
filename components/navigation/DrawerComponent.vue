@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="tw-fixed tw-top-1/4 tw-my-10 tw-mr-3 tw-w-72 tw-items-center tw-p-2"
-    :hidden="!isOpen"
-  >
+  <div class="tw-fixed tw-my-10 tw-mr-3 tw-max-w-64 tw-p-2" :hidden="!isOpen">
     <div
       class="tw-rounded-xl tw-border tw-px-4 tw-py-10 tw-shadow dark:tw-bg-violet-800"
     >

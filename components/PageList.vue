@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-mx-auto tw-w-5/6 tw-space-y-5">
+  <div class="tw-mx-auto tw-w-11/12 tw-space-y-5">
     <v-card
       v-for="n in props.card.length"
       :key="n"
