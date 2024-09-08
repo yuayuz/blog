@@ -1,5 +1,6 @@
 <template>
   <div class="tw-mb-4 tw-text-center tw-text-2xl">visualImpressions</div>
+  <photos-card />
 </template>
 
 <script setup lang="ts">

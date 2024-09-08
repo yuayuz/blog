@@ -21,7 +21,10 @@
       <v-list-item
         v-for="n in prop.menu.items.length"
         :key="n"
-        @click="navigate(prop.menu.items[n - 1].navigation)"
+        @click="
+          navigate(prop.menu.items[n - 1].navigation);
+          isOpen = false;
+        "
       >
         {{ t(prop.menu.items[n - 1].title) }}
       </v-list-item>
@@ -39,6 +42,7 @@ interface Props {
 
 const prop = defineProps<Props>();
 const { t } = useI18n();
+const isOpen = defineModel("isOpen");
 </script>
 
 <style scoped></style>

@@ -13,6 +13,7 @@
       v-for="n in props.menuButtons.length"
       :key="n"
       :menu="props.menuButtons[n - 1]"
+      v-model:is-open="isOpen"
     />
   </div>
 </template>
