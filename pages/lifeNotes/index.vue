@@ -1,7 +1,7 @@
 <template>
   <div class="tw-mb-4 tw-text-center tw-text-2xl">liftNotes</div>
 
-  <page-list :card="lifeNoteListMessage" />
+  <page-list :card="lifeNoteListMessage" :currentPath="'lifeNotes'" />
 </template>
 
 <script setup lang="ts">

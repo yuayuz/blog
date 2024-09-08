@@ -1,6 +1,6 @@
 <template>
   <div class="tw-mb-4 tw-text-center tw-text-2xl">reading</div>
-  <page-list :card="readingListMessage" />
+  <page-list :card="readingListMessage" :current-path="'reading'" />
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 <template>
   <div class="tw-mb-4 tw-text-center tw-text-2xl">learning</div>
-  <page-list :card="learningListMessage" />
+  <page-list :card="learningListMessage" :currentPath="'learning'" />
 </template>
 
 <script setup lang="ts">
