@@ -15,7 +15,18 @@ export default defineNuxtConfig({
       });
     },
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/i18n",
+    [
+      "@nuxtjs/i18n",
+      {
+        vueI18n: "./i18n.config.ts",
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: "i18n_redirected",
+          alwaysRedirect: true,
+        },
+        defaultLocale: "zhHans",
+      },
+    ],
   ],
   vite: {
     vue: {
@@ -26,10 +37,5 @@ export default defineNuxtConfig({
   },
   imports: {
     autoImport: false,
-  },
-  i18n: {
-    vueI18n: "./i18n.config.ts",
-    langDir: "locales/",
-    defaultLocale: "zhHans",
   },
 });
