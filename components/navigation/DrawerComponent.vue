@@ -23,6 +23,11 @@
         >
           {{ t(pages["buttons"][n - 1].title) }}
         </v-btn>
+        <photo-menu
+          v-for="n in menuButtons.length"
+          :key="n"
+          :menu="menuButtons[n - 1]"
+        />
       </div>
       <div class="tw-mx-auto tw-w-fit tw-space-y-5">
         <div class="tw-flex tw-justify-center tw-space-x-6">
@@ -52,9 +57,10 @@
 
 <script setup lang="ts">
 import { ref, useI18n, watch } from "#imports";
-import { pages } from "~/assets/navigation";
+import { menuButtons, pages } from "~/assets/navigation";
 import I18nMune from "~/components/navigation/I18nMune.vue";
 import ModeButton from "~/components/navigation/ModeButton.vue";
+import PhotoMenu from "~/components/navigation/PhotoMenu.vue";
 import { navigate } from "~/utils/navigation";
 
 const { t } = useI18n();

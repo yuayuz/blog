@@ -1,4 +1,8 @@
-import type { Navigation } from "~/types/navigation";
+import type {
+  Navigation,
+  NavigationButton,
+  NavigationMenu,
+} from "~/types/navigation";
 
 export const pages: Navigation = {
   home: {
@@ -18,8 +22,21 @@ export const pages: Navigation = {
       title: "navigation.reading",
       navigation: "reading",
     },
-    {
-      title: "navigation.photos.title",
-    },
   ],
 };
+const photos: NavigationButton[] = [
+  {
+    title: "navigationMenu.photos.photography",
+    navigation: "photos/photography",
+  },
+  {
+    title: "navigationMenu.photos.visualImpressions",
+    navigation: "photos/visualImpressions",
+  },
+];
+export const menuButtons: NavigationMenu[] = [
+  {
+    title: "navigationMenu.photos.title",
+    items: photos,
+  },
+];

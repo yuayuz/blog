@@ -22,12 +22,16 @@
       </div>
     </div>
   </div>
-  <header-menu v-model="isOpen" :buttons="pages['buttons']" />
+  <header-menu
+    v-model="isOpen"
+    :buttons="pages['buttons']"
+    :menu-buttons="menuButtons"
+  />
 </template>
 
 <script setup lang="ts">
 import { navigate, useI18n } from "#imports";
-import { pages } from "~/assets/navigation";
+import { menuButtons, pages } from "~/assets/navigation";
 import HeaderMenu from "~/components/navigation/HeaderMenu.vue";
 import I18nMune from "~/components/navigation/I18nMune.vue";
 import ModeButton from "~/components/navigation/ModeButton.vue";

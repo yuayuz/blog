@@ -3,7 +3,9 @@
   "navigation": {
     "lifeNotes": "Life Notes",
     "learning": "Voyage Through Learning",
-    "reading": "Reading",
+    "reading": "Reading"
+  },
+  "navigationMenu": {
     "photos": {
       "title": "photos",
       "photography": "photography",

@@ -3,7 +3,9 @@
   "navigation": {
     "lifeNotes": "人生札记",
     "learning": "学海漫游",
-    "reading": "书香清影",
+    "reading": "书香清影"
+  },
+  "navigationMenu": {
     "photos": {
       "title": "画卷探幽",
       "photography": "清界无限",
