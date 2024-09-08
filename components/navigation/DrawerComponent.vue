@@ -38,7 +38,7 @@
             @click="isOpen = !isOpen"
           />
         </div>
-        <i18n-mune />
+        <i18n-menu />
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@
 <script setup lang="ts">
 import { ref, useI18n, watch } from "#imports";
 import { menuButtons, pages } from "~/assets/navigation";
-import I18nMune from "~/components/navigation/I18nMune.vue";
+import I18nMenu from "~/components/navigation/I18nMenu.vue";
 import ModeButton from "~/components/navigation/ModeButton.vue";
 import PhotoMenu from "~/components/navigation/PhotoMenu.vue";
 import { navigate } from "~/utils/navigation";

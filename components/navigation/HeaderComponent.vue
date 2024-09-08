@@ -18,7 +18,7 @@
           size="large"
           @click="isOpen = !isOpen"
         />
-        <i18n-mune />
+        <i18n-menu />
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
 import { navigate, useI18n } from "#imports";
 import { menuButtons, pages } from "~/assets/navigation";
 import HeaderMenu from "~/components/navigation/HeaderMenu.vue";
-import I18nMune from "~/components/navigation/I18nMune.vue";
+import I18nMenu from "~/components/navigation/I18nMenu.vue";
 import ModeButton from "~/components/navigation/ModeButton.vue";
 
 const { t } = useI18n();
