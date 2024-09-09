@@ -7,9 +7,7 @@
         </template>
         {{ locale === "en" ? "English" : "简体中文" }}
         <template v-slot:append>
-          <v-icon
-            :icon="open ? ' mdi-chevron-up' : ' mdi-chevron-down'"
-          ></v-icon>
+          <v-icon :icon="open ? ' mdi-chevron-up' : ' mdi-chevron-down'" />
         </template>
       </v-btn>
     </template>

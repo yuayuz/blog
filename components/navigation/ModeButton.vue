@@ -6,7 +6,7 @@
         mode === 'tw-light' ? 'mdi-weather-night' : 'mdi-white-balance-sunny'
       "
       @click="darkMode()"
-    ></v-icon>
+    />
   </div>
 </template>
 

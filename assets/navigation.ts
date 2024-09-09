@@ -12,15 +12,15 @@ export const pages: Navigation = {
   buttons: [
     {
       title: "navigation.lifeNotes",
-      navigation: "lifeNotes",
+      navigation: "article-lifeNotes",
     },
     {
       title: "navigation.learning",
-      navigation: "learning",
+      navigation: "article-learning",
     },
     {
       title: "navigation.reading",
-      navigation: "reading",
+      navigation: "article-reading",
     },
   ],
 };

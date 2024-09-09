@@ -17,6 +17,5 @@ export type NavigationMenu = {
 };
 
 export interface PageListProps {
-  card: PageListMessage[];
-  currentPath: string;
+  card: PageListMessage[] | null;
 }

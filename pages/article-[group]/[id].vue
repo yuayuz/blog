@@ -1,5 +1,5 @@
 <template>
-  <article-component :title="$route.params.title as string" />
+  <article-component />
 </template>
 
 <script setup lang="ts">
