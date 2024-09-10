@@ -4,29 +4,51 @@
     <header-component v-model:is-open="isHidden" />
     <!-- 根据接收的 isOpen 决定是否隐藏 main 区域,以此实现只有菜单展现的效果 -->
     <div
-      class="tw-mx-auto tw-mt-20 tw-max-w-screen-2xl tw-px-4"
+      class="tw-mx-auto tw-mt-16 tw-max-w-screen-2xl tw-p-4"
       :hidden="isHidden"
     >
       <slot />
     </div>
   </div>
 
-  <div class="tw-mx-auto tw-hidden tw-max-w-screen-2xl md:tw-flex">
-    <drawer-component v-model:is-open="isOpen" />
-    <!-- 根据接收的 isOpen 决定是否隐藏主页面,以此改变 main 区域的大小 -->
-    <div :class="['tw-w-full tw-py-4', { 'tw-ml-64': isOpen }]">
-      <slot />
+  <div class="tw-relative tw-mx-auto tw-hidden tw-max-w-[100rem] md:tw-block">
+    <div
+      class="tw-relative tw-flex tw-h-fit tw-max-w-[100rem] tw-items-center tw-justify-center"
+    >
+      <div
+        class="tw-absolute tw-py-4 tw-text-center tw-text-6xl tw-font-black tw-text-white"
+      >
+        {{ t(pages["home"].title) }}
+        <div class="tw-mx-auto tw-mt-3 tw-flex tw-w-fit">
+          <div class="home_text tw-text-xl tw-opacity-70">
+            如一颗星闪过，随一本书解困，由一幅画吸引，乘一班车飞过，
+            沉迷一个人。
+          </div>
+        </div>
+      </div>
+      <v-img :src="img" style="z-index: -1" />
+    </div>
+    <div class="tw-relative tw-mx-auto tw-mt-5 tw-max-w-screen-2xl tw-px-4">
+      <drawer-component v-model:is-open="isOpen" />
+      <!-- 根据接收的 isOpen 决定是否隐藏主页面,以此改变 main 区域的大小 -->
+      <div :class="['tw-py-4', { 'tw-ml-64': isOpen }]">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "#imports";
+import img from "public/img_home.png";
+
+import { pages } from "@/assets/navigation";
+import { ref, useI18n } from "#imports";
 import DrawerComponent from "~/components/navigation/DrawerComponent.vue";
 import HeaderComponent from "~/components/navigation/HeaderComponent.vue";
 
 const isHidden = ref();
 const isOpen = ref();
+const { t } = useI18n();
 </script>
 
 <style scoped></style>
