@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <div class="tw-mb-4 tw-text-center tw-text-2xl">
-      {{ $route.params.group }}
-    </div>
-
-    <page-list :card="lists" />
-  </div>
+  <page-list :card="lists" />
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,4 @@
-<template>
-  <div class="tw-text-center">main</div>
-</template>
+<template></template>
 
 <script setup lang="ts">
 import { definePageMeta } from "#imports";
@@ -10,4 +8,6 @@ definePageMeta({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+@import "@/stylus/main.css";
+</style>
