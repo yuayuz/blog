@@ -10,13 +10,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
 import { useDisplay, useTheme } from "vuetify";
 
 const { mdAndUp } = useDisplay();
 const theme = useTheme();
-const mode = ref("tw-light");
+const mode = ref<string | null>("tw-light");
+
+const modeModel = defineModel("modeModel");
 onMounted(() => {
   localStorage.theme = "tw-light"; // 初始为light模式
   mode.value = localStorage.getItem("theme");
@@ -26,15 +28,20 @@ onMounted(() => {
 watch(mdAndUp, () => {
   mode.value = localStorage.getItem("theme");
 });
+watch(modeModel, () => {
+  mode.value = localStorage.getItem("theme");
+});
 const darkMode = () => {
   if (theme.global.current.value.dark) {
     theme.global.name.value = "light";
     document.documentElement.classList.remove("tw-dark");
     localStorage.theme = "tw-light";
+    modeModel.value = "tw-light";
   } else {
     theme.global.name.value = "dark";
     document.documentElement.classList.add("tw-dark");
     localStorage.theme = "tw-dark";
+    modeModel.value = "tw-dark";
   }
   mode.value = localStorage.getItem("theme");
 };

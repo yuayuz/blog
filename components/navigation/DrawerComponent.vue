@@ -21,7 +21,7 @@
       </div>
       <div class="tw-mx-auto tw-w-fit tw-space-y-2">
         <div class="tw-flex tw-justify-center tw-space-x-6">
-          <mode-button />
+          <mode-button v-model:mode-model="mode" />
           <v-icon
             :icon="isOpen ? 'mdi-close' : 'mdi-menu'"
             size="large"
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div :hidden="isOpen" class="tw-fixed tw-top-1/2 tw-space-y-5">
-    <mode-button />
+    <mode-button v-model:mode-model="mode" />
     <div>
       <v-icon
         class="tw-fixed"
@@ -56,6 +56,7 @@ import { navigate } from "~/utils/navigation";
 const { t } = useI18n();
 const isOpen = ref(true);
 const model = defineModel("isOpen");
+const mode = ref("tw-light");
 model.value = isOpen.value;
 // 观察 isOpen ,改变时使用 v-model 通知导航布局改变 main 区域的大小
 watch(isOpen, () => {
