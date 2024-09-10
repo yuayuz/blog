@@ -1,7 +1,16 @@
 <template>
   <!-- 使用 fixed 悬浮, z-index 设为 1 -->
+  <div class="tw-sticky">
+    <v-img :src="img" style="z-index: -1" class="tw-flex tw-items-center">
+      <div
+        class="tw-absolute tw-mx-auto tw-w-full tw-justify-center tw-px-10 tw-text-center tw-text-base tw-text-white tw-opacity-60"
+      >
+        如一颗星闪过，随一本书解困，由一幅画吸引，乘一班车飞过， 沉迷一个人。
+      </div>
+    </v-img>
+  </div>
   <div
-    class="tw-fixed tw-top-0 tw-h-16 tw-w-full tw-content-center tw-bg-white tw-shadow dark:tw-bg-[#D99438]"
+    class="tw-sticky tw-top-0 tw-h-16 tw-w-full tw-content-center tw-bg-white tw-shadow dark:tw-bg-[#D99438]"
     style="z-index: 1"
   >
     <div
@@ -30,6 +39,8 @@
 </template>
 
 <script setup lang="ts">
+import img from "public/img_header.png";
+
 import { navigate, useI18n } from "#imports";
 import { menuButtons, pages } from "~/assets/navigation";
 import HeaderMenu from "~/components/navigation/HeaderMenu.vue";
