@@ -1,13 +1,13 @@
 <template>
   <div class="tw-fixed tw-my-2 tw-mr-3 tw-max-w-64 tw-px-2" :hidden="!isOpen">
     <div
-      class="tw-rounded-xl tw-border tw-px-1 tw-py-3 tw-shadow dark:tw-bg-[#E4AB4D]"
+      class="dark:tw-bg-pictureTone tw-rounded-xl tw-border tw-px-1 tw-py-3 tw-shadow"
     >
       <div class="tw-my-4 tw-space-y-2 tw-text-center tw-text-2xl">
         <v-btn
           v-for="n in pages['buttons'].length"
           :key="n"
-          class="tw-w-full hover:tw-text-[#B38A4A] dark:hover:tw-text-[#39525A]"
+          class="hover:tw-text-pictureTone dark:hover:tw-text-pictureTone_deep tw-w-full"
           variant="text"
           @click="navigate(pages['buttons'][n - 1].navigation)"
         >

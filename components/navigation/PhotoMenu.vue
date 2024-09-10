@@ -1,6 +1,6 @@
 <template>
   <v-btn
-    class="tw-w-full tw-px-6 tw-py-2 hover:tw-text-[#B38A4A] dark:hover:tw-text-[#39525A]"
+    class="hover:tw-text-pictureTone dark:hover:tw-text-pictureTone_deep tw-w-full tw-px-6 tw-py-2"
     variant="text"
   >
     <p class="tw-text-2xl">{{ t(props.menu.title) }}</p>
@@ -9,7 +9,7 @@
         class="tw-h-fit tw-w-fit tw-space-y-2 tw-rounded-lg tw-bg-white tw-px-2 tw-py-2 tw-shadow dark:tw-bg-[#212121]"
       >
         <v-btn
-          class="tw-w-full tw-border hover:tw-text-[#B38A4A] dark:hover:tw-text-[#E4AB4D]"
+          class="hover:tw-text-pictureTone dark:hover:tw-text-pictureTone tw-w-full tw-border"
           variant="text"
           size="sm"
           density="comfortable"

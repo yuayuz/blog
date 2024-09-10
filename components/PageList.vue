@@ -4,7 +4,7 @@
       v-for="n in props.card.length"
       :key="n"
       rounded="lg"
-      class="px-6 tw-min-h-20 tw-content-center hover:tw-bg-[#E6AE45] dark:hover:tw-bg-[#C99146]"
+      class="px-6 hover:tw-text-pictureTone tw-min-h-20 tw-content-center"
       @click="navigate(`article-${route.params.group}/${props.card[n - 1].id}`)"
     >
       <div class="tw-flex tw-justify-between">

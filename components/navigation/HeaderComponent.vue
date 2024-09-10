@@ -10,7 +10,7 @@
     </v-img>
   </div>
   <div
-    class="tw-sticky tw-top-0 tw-h-16 tw-w-full tw-content-center tw-bg-white tw-shadow dark:tw-bg-[#D99438]"
+    class="dark:tw-bg-pictureTone tw-sticky tw-top-0 tw-h-16 tw-w-full tw-content-center tw-bg-white tw-shadow"
     style="z-index: 1"
   >
     <div
