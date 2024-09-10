@@ -1,9 +1,9 @@
 <template>
   <v-menu v-model="open">
     <template v-slot:activator="{ props }">
-      <v-btn v-bind="props">
+      <v-btn v-bind="props" readonly>
         <template v-slot:prepend>
-          <v-img :src="svg_language" />
+          <v-img :src="svg_language" height="20" width="20" />
         </template>
         {{ locale === "en" ? "English" : "简体中文" }}
         <template v-slot:append>

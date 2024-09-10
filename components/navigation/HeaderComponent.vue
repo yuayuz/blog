@@ -1,7 +1,7 @@
 <template>
   <!-- 使用 fixed 悬浮, z-index 设为 1 -->
   <div
-    class="tw-fixed tw-top-0 tw-h-16 tw-w-full tw-content-center tw-bg-white tw-shadow dark:tw-bg-violet-800"
+    class="tw-fixed tw-top-0 tw-h-16 tw-w-full tw-content-center tw-bg-white tw-shadow dark:tw-bg-[#D99438]"
     style="z-index: 1"
   >
     <div

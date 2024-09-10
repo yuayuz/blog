@@ -1,3 +1,9 @@
 .v-btn {
   text-transform: none !important;
 }
+.language_btn {
+  background-color: #fff;
+}
+.language_btn_dark {
+  background-color: #ac8445;
+}
