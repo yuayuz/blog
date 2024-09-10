@@ -17,16 +17,14 @@
     >
       <div
         class="tw-absolute tw-py-4 tw-text-center tw-text-6xl tw-font-black tw-text-white"
+        style="z-index: 1"
       >
         {{ t(pages["home"].title) }}
-        <div class="tw-mx-auto tw-mt-3 tw-flex tw-w-fit">
-          <div class="home_text tw-text-xl tw-opacity-70">
-            如一颗星闪过，随一本书解困，由一幅画吸引，乘一班车飞过，
-            沉迷一个人。
-          </div>
+        <div class="home_text tw-mt-3 tw-text-xl tw-text-white tw-opacity-70">
+          如一颗星闪过，随一本书解困，由一幅画吸引，乘一班车飞过， 沉迷一个人。
         </div>
       </div>
-      <v-img :src="img" style="z-index: -1" />
+      <v-img :src="img" />
     </div>
     <div class="tw-relative tw-mx-auto tw-mt-5 tw-max-w-screen-2xl tw-px-4">
       <drawer-component v-model:is-open="isOpen" />
