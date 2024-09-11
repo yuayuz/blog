@@ -4,6 +4,7 @@ import "vuetify/styles";
 
 import { createVuetify } from "vuetify";
 
+import { colors } from "@/assets/colors";
 import { defineNuxtPlugin } from "#app";
 
 export default defineNuxtPlugin((app) => {
@@ -12,7 +13,8 @@ export default defineNuxtPlugin((app) => {
       themes: {
         light: {
           colors: {
-            surface: "#fefcfa",
+            surface: colors.surface,
+            background: colors.light_background,
           },
         },
       },

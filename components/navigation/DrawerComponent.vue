@@ -1,7 +1,7 @@
 <template>
   <div class="tw-fixed tw-my-2 tw-mr-3 tw-max-w-64 tw-px-2" :hidden="!isOpen">
     <div
-      class="tw-rounded-xl tw-border tw-px-1 tw-py-3 tw-shadow dark:tw-bg-pictureTone"
+      class="tw-bg-surface tw-rounded-xl tw-border tw-px-1 tw-py-3 tw-shadow dark:tw-bg-pictureTone"
     >
       <div class="tw-my-4 tw-space-y-2 tw-text-center tw-text-2xl">
         <v-btn

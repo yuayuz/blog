@@ -6,7 +6,7 @@
     <p class="tw-text-2xl">{{ t(props.menu.title) }}</p>
     <v-menu location="end" activator="parent" open-on-hover>
       <div
-        class="tw-h-fit tw-w-fit tw-space-y-2 tw-rounded-lg tw-bg-white tw-px-2 tw-py-2 tw-shadow dark:tw-bg-[#212121]"
+        class="tw-bg-surface dark:tw-bg-surface_dark tw-h-fit tw-w-fit tw-space-y-2 tw-rounded-lg tw-px-2 tw-py-2 tw-shadow"
       >
         <v-btn
           class="tw-w-full tw-border hover:tw-text-pictureTone dark:hover:tw-text-pictureTone"
