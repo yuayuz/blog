@@ -2,7 +2,6 @@
   "title": "zty' Blog",
   "navigation": {
     "lifeNotes": "Life Notes",
-    "learning": "Voyage Through Learning",
     "reading": "Reading"
   },
   "navigationMenu": {
@@ -10,6 +9,10 @@
       "title": "photos",
       "photography": "photography",
       "visualImpressions": "Visual Impressions"
+    },
+    "learning": {
+      "title": "learning",
+      "frontend": "frontend"
     }
   }
 }

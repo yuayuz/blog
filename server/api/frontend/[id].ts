@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   try {
     // 使用数据库连接池查询数据
     const { rows } = await pool.query(
-      "SELECT id,title,content,created_at,updated_at FROM learning WHERE id=$1",
+      "SELECT id,title,content,created_at,updated_at FROM frontend WHERE id=$1",
       [id],
     );
     return rows;

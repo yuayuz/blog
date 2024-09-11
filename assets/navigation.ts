@@ -15,10 +15,6 @@ export const pages: Navigation = {
       navigation: "article-lifeNotes",
     },
     {
-      title: "navigation.learning",
-      navigation: "article-learning",
-    },
-    {
       title: "navigation.reading",
       navigation: "article-reading",
     },
@@ -34,7 +30,17 @@ const photos: NavigationButton[] = [
     navigation: "photos/visualImpressions",
   },
 ];
+const learning: NavigationButton[] = [
+  {
+    title: "navigationMenu.learning.frontend",
+    navigation: "article-frontend",
+  },
+];
 export const menuButtons: NavigationMenu[] = [
+  {
+    title: "navigationMenu.learning.title",
+    items: learning,
+  },
   {
     title: "navigationMenu.photos.title",
     items: photos,
