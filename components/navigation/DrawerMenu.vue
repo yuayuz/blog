@@ -11,8 +11,7 @@
         <v-btn
           class="tw-w-full tw-border hover:tw-text-pictureTone dark:hover:tw-text-pictureTone"
           variant="text"
-          size="sm"
-          density="comfortable"
+          size="large"
           v-for="n in props.menu.items.length"
           :key="n"
           @click="navigate(props.menu.items[n - 1].navigation)"
