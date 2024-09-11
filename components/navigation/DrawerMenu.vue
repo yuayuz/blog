@@ -1,15 +1,15 @@
 <template>
   <v-btn
-    class="hover:tw-text-pictureTone dark:hover:tw-text-pictureTone_deep tw-w-full tw-px-6 tw-py-2"
+    class="tw-w-full tw-px-6 tw-py-2 hover:tw-text-pictureTone dark:hover:tw-text-pictureTone_deep"
     variant="text"
   >
     <p class="tw-text-2xl">{{ t(props.menu.title) }}</p>
-    <v-menu location="top end" activator="parent" open-on-hover>
+    <v-menu location="end" activator="parent" open-on-hover>
       <div
         class="tw-h-fit tw-w-fit tw-space-y-2 tw-rounded-lg tw-bg-white tw-px-2 tw-py-2 tw-shadow dark:tw-bg-[#212121]"
       >
         <v-btn
-          class="hover:tw-text-pictureTone dark:hover:tw-text-pictureTone tw-w-full tw-border"
+          class="tw-w-full tw-border hover:tw-text-pictureTone dark:hover:tw-text-pictureTone"
           variant="text"
           size="sm"
           density="comfortable"

@@ -1,19 +1,19 @@
 <template>
   <div class="tw-fixed tw-my-2 tw-mr-3 tw-max-w-64 tw-px-2" :hidden="!isOpen">
     <div
-      class="dark:tw-bg-pictureTone tw-rounded-xl tw-border tw-px-1 tw-py-3 tw-shadow"
+      class="tw-rounded-xl tw-border tw-px-1 tw-py-3 tw-shadow dark:tw-bg-pictureTone"
     >
       <div class="tw-my-4 tw-space-y-2 tw-text-center tw-text-2xl">
         <v-btn
           v-for="n in pages['buttons'].length"
           :key="n"
-          class="hover:tw-text-pictureTone dark:hover:tw-text-pictureTone_deep tw-w-full"
+          class="tw-w-full hover:tw-text-pictureTone dark:hover:tw-text-pictureTone_deep"
           variant="text"
           @click="navigate(pages['buttons'][n - 1].navigation)"
         >
           <p class="tw-text-2xl">{{ t(pages["buttons"][n - 1].title) }}</p>
         </v-btn>
-        <photo-menu
+        <drawer-menu
           v-for="n in menuButtons.length"
           :key="n"
           :menu="menuButtons[n - 1]"
@@ -48,9 +48,9 @@
 <script setup lang="ts">
 import { ref, useI18n, watch } from "#imports";
 import { menuButtons, pages } from "~/assets/navigation";
+import DrawerMenu from "~/components/navigation/DrawerMenu.vue";
 import I18nMenu from "~/components/navigation/I18nMenu.vue";
 import ModeButton from "~/components/navigation/ModeButton.vue";
-import PhotoMenu from "~/components/navigation/PhotoMenu.vue";
 import { navigate } from "~/utils/navigation";
 
 const { t } = useI18n();
