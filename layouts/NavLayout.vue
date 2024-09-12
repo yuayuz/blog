@@ -24,10 +24,20 @@
       <v-img :src="img" />
     </div>
     <div class="tw-relative tw-mx-auto tw-mt-5 tw-max-w-screen-2xl tw-px-4">
-      <drawer-component v-model:is-open="isOpen" v-model:is-search="isSearch" />
+      <drawer-component
+        v-model:is-open="isOpen"
+        v-model:is-search="isSearch"
+        v-model:query="query"
+        v-model:input-messages="inputMessages"
+      />
       <!-- 根据接收的 isOpen 决定是否隐藏主页面,以此改变 main 区域的大小 -->
-      <div :class="['tw-py-4', { 'tw-ml-64': isOpen }]" v-if="!isSearch">
-        <slot />
+      <div :class="['tw-py-4', { 'tw-ml-64': isOpen }]">
+        <slot v-if="!isSearch" />
+        <drawer-search
+          v-model:query="query"
+          v-model:input-messages="inputMessages"
+          v-model:is-search="isSearch"
+        />
       </div>
     </div>
   </div>
@@ -39,12 +49,15 @@ import img from "public/img_home.png";
 import { pages } from "@/assets/navigation";
 import { ref, useI18n } from "#imports";
 import DrawerComponent from "~/components/navigation/DrawerComponent.vue";
+import DrawerSearch from "~/components/navigation/DrawerSearch.vue";
 import HeaderComponent from "~/components/navigation/HeaderComponent.vue";
 
 const isHidden = ref();
+const query = ref<string>("");
+const inputMessages = ref<string>("");
+const isSearch = ref<boolean>(false);
 const isOpen = ref();
 const { t } = useI18n();
-const isSearch = ref<boolean>(false);
 </script>
 
 <style scoped></style>

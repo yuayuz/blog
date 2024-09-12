@@ -51,19 +51,12 @@
       />
     </div>
   </div>
-  <drawer-search
-    :is-open="isOpen"
-    v-model:query="query"
-    v-model:input-messages="inputMessages"
-    v-model:is-search="isSearch"
-  />
 </template>
 
 <script setup lang="ts">
 import { ref, useI18n, watch } from "#imports";
 import { menuButtons, pages } from "~/assets/navigation";
 import DrawerMenu from "~/components/navigation/DrawerMenu.vue";
-import DrawerSearch from "~/components/navigation/DrawerSearch.vue";
 import DrawerSearchInput from "~/components/navigation/DrawerSearchInput.vue";
 import I18nMenu from "~/components/navigation/I18nMenu.vue";
 import ModeButton from "~/components/navigation/ModeButton.vue";
@@ -73,13 +66,20 @@ const { t } = useI18n();
 const isOpen = ref(true);
 const model = defineModel("isOpen");
 const mode = ref("tw-light");
+const query = defineModel<string>("query", { default: "", required: true });
+const isSearch = defineModel<boolean>("isSearch", {
+  default: false,
+  required: true,
+});
+const inputMessages = defineModel<string>("inputMessages", {
+  default: "",
+  required: true,
+});
 model.value = isOpen.value;
 // 观察 isOpen ,改变时使用 v-model 通知导航布局改变 main 区域的大小
 watch(isOpen, () => {
   model.value = isOpen.value;
 });
-const query = ref<string>("");
-const isSearch = defineModel("isSearch", { type: Boolean, default: false });
 watch(query, () => {
   if (query.value !== "") {
     isSearch.value = true;
@@ -90,7 +90,6 @@ watch(isSearch, () => {
     query.value = "";
   }
 });
-const inputMessages = ref<string>("");
 </script>
 
 <style scoped>
