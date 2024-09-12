@@ -3,7 +3,7 @@
     <div
       class="tw-content-center tw-justify-between tw-space-y-5 tw-px-4 md:tw-hidden"
     >
-      <div class="tw-text-4xl">{{ route.params.group }}</div>
+      <div class="tw-text-4xl">{{ t(`${route.params.group}`) }}</div>
       <v-menu>
         <template v-slot:activator="{ props }">
           <v-btn v-bind="props" size="large">
@@ -35,7 +35,7 @@
       class="tw-hidden tw-items-center tw-justify-between tw-px-4 md:tw-flex"
     >
       <div class="tw-text-4xl">{{ route.params.group }}</div>
-      <div class="tw-w-1/3">
+      <div class="tw-hidden tw-w-1/3">
         <v-text-field
           variant="outlined"
           type="input"
@@ -127,7 +127,7 @@ import {
 import { navigate } from "~/utils/navigation";
 
 const props = defineProps<PageListProps>();
-const list = props.card;
+const list: PageListMessage[] | null = props.card;
 const route = useRoute();
 const open = ref(false);
 const query = ref("");

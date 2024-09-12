@@ -15,5 +15,10 @@
       "title": "learning",
       "frontend": "frontend"
     }
+  },
+  "group": {
+    "lifeNotes": "lifeNotes",
+    "reading": "reading",
+    "frontend": "frontend"
   }
 }

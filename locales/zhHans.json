@@ -15,5 +15,10 @@
       "title": "学海漫游",
       "frontend": "前端"
     }
+  },
+  "group": {
+    "lifeNotes": "人生札记",
+    "reading": "书香清影",
+    "frontend": "前端"
   }
 }

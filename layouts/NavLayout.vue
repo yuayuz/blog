@@ -24,9 +24,9 @@
       <v-img :src="img" />
     </div>
     <div class="tw-relative tw-mx-auto tw-mt-5 tw-max-w-screen-2xl tw-px-4">
-      <drawer-component v-model:is-open="isOpen" />
+      <drawer-component v-model:is-open="isOpen" v-model:is-search="isSearch" />
       <!-- 根据接收的 isOpen 决定是否隐藏主页面,以此改变 main 区域的大小 -->
-      <div :class="['tw-py-4', { 'tw-ml-64': isOpen }]">
+      <div :class="['tw-py-4', { 'tw-ml-64': isOpen }]" v-if="!isSearch">
         <slot />
       </div>
     </div>
@@ -44,6 +44,7 @@ import HeaderComponent from "~/components/navigation/HeaderComponent.vue";
 const isHidden = ref();
 const isOpen = ref();
 const { t } = useI18n();
+const isSearch = ref<boolean>(false);
 </script>
 
 <style scoped></style>

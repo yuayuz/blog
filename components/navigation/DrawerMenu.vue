@@ -6,7 +6,7 @@
     <p class="tw-text-2xl">{{ t(props.menu.title) }}</p>
     <v-menu location="end" activator="parent" open-on-hover>
       <div
-        class="tw-bg-surface dark:tw-bg-surface_dark tw-h-fit tw-w-fit tw-space-y-2 tw-rounded-lg tw-px-2 tw-py-2 tw-shadow"
+        class="tw-h-fit tw-w-fit tw-space-y-2 tw-rounded-lg tw-bg-surface tw-px-2 tw-py-2 tw-shadow dark:tw-bg-surface_dark"
       >
         <v-btn
           class="tw-w-full tw-border hover:tw-text-pictureTone dark:hover:tw-text-pictureTone"
@@ -14,7 +14,10 @@
           size="large"
           v-for="n in props.menu.items.length"
           :key="n"
-          @click="navigate(props.menu.items[n - 1].navigation)"
+          @click="
+            isSearch = false;
+            navigate(props.menu.items[n - 1].navigation);
+          "
         >
           <p class="tw-text-base">{{ t(props.menu.items[n - 1].title) }}</p>
         </v-btn>
@@ -33,6 +36,7 @@ interface Props {
 
 const props = defineProps<Props>();
 const { t } = useI18n();
+const isSearch = defineModel("isSearch", { type: Boolean, default: false });
 </script>
 
 <style scoped></style>

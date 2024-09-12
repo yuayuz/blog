@@ -3,6 +3,7 @@ export type PageListMessage = {
   title: string;
   preview: string;
   updated_at: string;
+  group_type: string;
 };
 export type Article = {
   id: string;
