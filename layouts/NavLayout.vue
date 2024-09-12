@@ -3,10 +3,7 @@
   <div class="tw-block md:tw-hidden">
     <header-component v-model:is-open="isHidden" />
     <!-- 根据接收的 isOpen 决定是否隐藏 main 区域,以此实现只有菜单展现的效果 -->
-    <div
-      class="tw-mx-auto tw-mt-16 tw-max-w-screen-2xl tw-p-4"
-      :hidden="isHidden"
-    >
+    <div class="tw-mx-auto tw-max-w-screen-2xl tw-p-4" :hidden="isHidden">
       <slot />
     </div>
   </div>

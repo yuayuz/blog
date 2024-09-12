@@ -1,8 +1,41 @@
 <template>
   <div v-if="list != null" class="tw-mx-auto tw-w-11/12 tw-space-y-5">
-    <div class="tw-flex tw-items-center tw-justify-between tw-px-4">
+    <div
+      class="tw-content-center tw-justify-between tw-space-y-5 tw-px-4 md:tw-hidden"
+    >
       <div class="tw-text-4xl">{{ route.params.group }}</div>
-      <div class="tw-w-1/2">
+      <v-menu>
+        <template v-slot:activator="{ props }">
+          <v-btn v-bind="props" size="large">
+            {{ sortItem }}
+            <template v-slot:append>
+              <v-icon :icon="open ? ' mdi-chevron-up' : ' mdi-chevron-down'" />
+            </template>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item
+            @click="
+              sortList(compareByUpdatedDesc);
+              sortItem = '根据最后更新时间递减排序';
+            "
+            >根据最后更新时间递减排序
+          </v-list-item>
+          <v-list-item
+            @click="
+              sortList(compareByUpdatedAsc);
+              sortItem = '根据最后更新时间递增排序';
+            "
+            >根据最后更新时间递增排序
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </div>
+    <div
+      class="tw-hidden tw-items-center tw-justify-between tw-px-4 md:tw-flex"
+    >
+      <div class="tw-text-4xl">{{ route.params.group }}</div>
+      <div class="tw-w-1/3">
         <v-text-field
           variant="outlined"
           type="input"
