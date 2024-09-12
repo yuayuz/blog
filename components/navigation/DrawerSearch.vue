@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-relative tw-mx-auto tw-hidden tw-w-11/12 tw-space-y-5 md:tw-block"
+    class="tw-relative tw-mx-auto tw-w-11/12 tw-space-y-5"
     v-if="isSearch && queryList != null"
   >
     <search-list-sort :list="queryList" />

@@ -1,10 +1,20 @@
 <template>
   <!-- 导航布局: md(960px)以上,采用 drawer 侧边导航; md (960px)以下,采用 header 导航 -->
   <div class="tw-block md:tw-hidden">
-    <header-component v-model:is-open="isHidden" />
+    <header-component
+      v-model:is-open="isHidden"
+      v-model:is-search="isSearch"
+      v-model:query="query"
+      v-model:input-messages="inputMessages"
+    />
     <!-- 根据接收的 isOpen 决定是否隐藏 main 区域,以此实现只有菜单展现的效果 -->
     <div class="tw-mx-auto tw-max-w-screen-2xl tw-p-4" :hidden="isHidden">
-      <slot />
+      <slot v-if="!isSearch" />
+      <drawer-search
+        v-model:query="query"
+        v-model:input-messages="inputMessages"
+        v-model:is-search="isSearch"
+      />
     </div>
   </div>
 
