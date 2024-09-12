@@ -4,32 +4,7 @@
       class="tw-content-center tw-justify-between tw-space-y-5 tw-px-4 md:tw-hidden"
     >
       <div class="tw-text-4xl">{{ t(`${route.params.group}`) }}</div>
-      <v-menu>
-        <template v-slot:activator="{ props }">
-          <v-btn v-bind="props" size="large">
-            {{ sortItem }}
-            <template v-slot:append>
-              <v-icon :icon="open ? ' mdi-chevron-up' : ' mdi-chevron-down'" />
-            </template>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item
-            @click="
-              sortList(compareByUpdatedDesc);
-              sortItem = '根据最后更新时间递减排序';
-            "
-            >根据最后更新时间递减排序
-          </v-list-item>
-          <v-list-item
-            @click="
-              sortList(compareByUpdatedAsc);
-              sortItem = '根据最后更新时间递增排序';
-            "
-            >根据最后更新时间递增排序
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <article-list-sort v-model:list="list" />
     </div>
     <div
       class="tw-hidden tw-items-center tw-justify-between tw-px-4 md:tw-flex"
@@ -46,32 +21,7 @@
           :messages="setMessages()"
         ></v-text-field>
       </div>
-      <v-menu>
-        <template v-slot:activator="{ props }">
-          <v-btn v-bind="props" size="large">
-            {{ sortItem }}
-            <template v-slot:append>
-              <v-icon :icon="open ? ' mdi-chevron-up' : ' mdi-chevron-down'" />
-            </template>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item
-            @click="
-              sortList(compareByUpdatedDesc);
-              sortItem = '根据最后更新时间递减排序';
-            "
-            >根据最后更新时间递减排序
-          </v-list-item>
-          <v-list-item
-            @click="
-              sortList(compareByUpdatedAsc);
-              sortItem = '根据最后更新时间递增排序';
-            "
-            >根据最后更新时间递增排序
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <article-list-sort v-model:list="list" />
     </div>
     <div v-if="query === ''" class="tw-space-y-5">
       <v-card
@@ -120,19 +70,14 @@
 import { onMounted, ref, useI18n, useRoute, watch } from "#imports";
 import type { PageListMessage } from "~/types/main";
 import type { PageListProps } from "~/types/navigation";
-import {
-  compareByUpdatedAsc,
-  compareByUpdatedDesc,
-} from "~/utils/ArticleListSort";
+import { compareByUpdatedDesc } from "~/utils/ArticleListSort";
 import { navigate } from "~/utils/navigation";
 
 const props = defineProps<PageListProps>();
 const list: PageListMessage[] | null = props.card;
 const route = useRoute();
-const open = ref(false);
 const query = ref("");
 const queryList = ref<PageListMessage[] | undefined>();
-const sortItem = ref("根据最后更新时间递减排序");
 const { t } = useI18n();
 onMounted(() => {
   list?.sort(compareByUpdatedDesc);
@@ -146,11 +91,6 @@ const setMessages = function () {
   } else if (queryList.value != undefined && query.value != "") {
     return `搜索结果条数为：${queryList.value.length}`;
   }
-};
-const sortList = function (
-  fun: (x: PageListMessage, y: PageListMessage) => number,
-) {
-  list?.sort(fun);
 };
 </script>
 

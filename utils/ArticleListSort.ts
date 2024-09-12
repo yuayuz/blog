@@ -45,3 +45,9 @@ export const compareByGroupDesc = function (
   }
   return 0;
 };
+export const sortList = function (
+  list: PageListMessage[] | null,
+  fun: (x: PageListMessage, y: PageListMessage) => number,
+) {
+  list?.sort(fun);
+};
