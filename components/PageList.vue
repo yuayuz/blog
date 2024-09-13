@@ -3,13 +3,13 @@
     <div
       class="tw-content-center tw-justify-between tw-space-y-5 tw-px-4 md:tw-hidden"
     >
-      <div class="tw-text-4xl">{{ t(`${route.params.group}`) }}</div>
+      <div class="tw-text-4xl">{{ t(`group.${route.params.group}`) }}</div>
       <article-list-sort v-model:list="list" />
     </div>
     <div
       class="tw-hidden tw-items-center tw-justify-between tw-px-4 md:tw-flex"
     >
-      <div class="tw-text-4xl">{{ route.params.group }}</div>
+      <div class="tw-text-4xl">{{ t(`group.${route.params.group}`) }}</div>
       <div class="tw-hidden tw-w-1/3">
         <v-text-field
           variant="outlined"
