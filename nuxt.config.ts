@@ -12,15 +12,8 @@ export default defineNuxtConfig({
     ],
   },
   modules: [
-    'vuetify-nuxt-module',
   ],
-  vuetify: {
-    moduleOptions: {
-      /* module specific options */
-    },
-    vuetifyOptions: './vuetify.config.ts' // <== you can omit it
-
-  },
+  
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true }
 })
