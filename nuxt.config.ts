@@ -11,9 +11,17 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  modules: [
-  ],
-  
+  modules: ['@nuxt/icon'],
+  icon: {
+    mode: 'css',
+    cssLayer: 'base',
+    customCollections: [
+      {
+        prefix: 'my-icon',
+        dir: './assets/my-icons'
+      },
+    ],
+  },
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true }
 })
