@@ -12,9 +12,10 @@
           :class="getClass(index)"
           @mouseenter="setHover(index)"
           @mouseleave="setHover(null)"
+          @click="item.path ? goTo(item.path) : item.action?.()"
           :title="item.name"
         >
-          <Icon :name="'my-icon:' + item.icon" />
+          <Icon :name="'my-icon:' + item.icon"> </Icon>
         </button>
       </nav>
     </div>
@@ -24,13 +25,37 @@
 import { ref } from 'vue'
 
 const nav = [
-  { name: 'Home', icon: 'home', color: 'hover:text-red-500' },
-  { name: 'blog', icon: 'notebook', color: 'hover:text-orange-500' },
-  { name: 'Gallery', icon: 'camera', color: 'hover:text-green-500' },
-  { name: 'GitHub', icon: 'github', color: 'hover:text-sky-500' },
-  { name: 'Email', icon: 'mail', color: 'hover:text-purple-500' },
-  { name: 'Theme', icon: 'sun', color: 'hover:text-rose-500' },
-  { name: 'Sound', icon: 'volume-2', color: 'hover:text-zinc-500' },
+  { name: 'Home', icon: 'home', color: 'hover:text-red-500', path: '/' },
+  {
+    name: 'blog',
+    icon: 'notebook',
+    color: 'hover:text-orange-500',
+    path: '/blog',
+  },
+  {
+    name: 'Gallery',
+    icon: 'camera',
+    color: 'hover:text-green-500',
+    path: '/gallery',
+  },
+  {
+    name: 'GitHub',
+    icon: 'github',
+    color: 'hover:text-sky-500',
+    path: 'https://github.com/yuayuz?tab=overview&from=2025-05-01&to=2025-05-17',
+  },
+  {
+    name: 'Theme',
+    icon: 'sun',
+    color: 'hover:text-purple-500',
+    action: () => toggleTheme(),
+  },
+  {
+    name: 'Sound',
+    icon: 'volume-2',
+    color: 'hover:text-rose-500',
+    action: () => toggleSound(),
+  },
 ]
 
 // 悬停索引
@@ -55,6 +80,27 @@ function getClass(index: number): string {
     default:
       return `scale-100 translate-y-0 ${baseColor} `
   }
+}
+
+const router = useRouter()
+const goTo = (path: string) => {
+  // 判断是否为外部链接
+  if (path.startsWith('http')) {
+    window.open(path, '_blank') // 在新标签页打开
+  } else {
+    // 内部路由
+    const router = useRouter()
+    router.push(path)
+  }
+}
+const toggleTheme = () => {
+  console.log('暂未实现主题切换')
+  alert('暂未实现主题切换')
+}
+
+const toggleSound = () => {
+  console.log('暂未实现声音切换')
+  alert('暂未实现声音切换')
 }
 </script>
 <style></style>
