@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  modules: ['@nuxt/icon'],
+  modules: ['@nuxt/icon','@nuxt/content'],
   icon: {
     mode: 'css',
     cssLayer: 'base',
