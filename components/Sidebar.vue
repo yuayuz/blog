@@ -18,7 +18,7 @@
       >
         <li>
           <NuxtLink
-            :to="`/blog/category-${item.dir}`"
+            :to="{path:`/blog/category-${item.dir}`,query:{name:item.name}}"
             class="text-lg"
             :class="item.color"
             >{{ item.name }}</NuxtLink
