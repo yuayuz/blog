@@ -16,10 +16,12 @@
         <Icon :name="'my-icon:' + item.icon"> </Icon>
       </button>
     </nav>
+    <AudioPlayer />
   </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
+import AudioPlayer from '~/components/AudioPlayer.client.vue'
 
 const nav = [
   { name: 'Home', icon: 'home', color: 'hover:text-red-500', path: '/' },
@@ -47,12 +49,12 @@ const nav = [
     color: 'hover:text-purple-500',
     action: () => toggleTheme(),
   },
-  {
-    name: 'Sound',
-    icon: 'volume-2',
-    color: 'hover:text-rose-500',
-    action: () => toggleSound(),
-  },
+  // {
+  //   name: 'Sound',
+  //   icon: 'volume-2',
+  //   color: 'hover:text-rose-500',
+  //   action: () => toggleSound(),
+  // },
 ]
 
 // 悬停索引
