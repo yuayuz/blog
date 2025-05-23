@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 w-screen h-screen">
+  <div class="min-h-screen w-screen p-6">
     <div class="columns-1 gap-4 space-y-4 sm:columns-2 md:columns-3">
       <img
         v-for="(img, i) in current?.images"

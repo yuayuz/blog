@@ -90,9 +90,31 @@ const goTo = (path: string) => {
     router.push(path)
   }
 }
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const saved = localStorage.getItem('theme')
+  if (
+    saved === 'dark' ||
+    (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+})
+
 const toggleTheme = () => {
-  console.log('暂未实现主题切换')
-  alert('暂未实现主题切换')
+  const html = document.documentElement
+  const isDark = html.classList.contains('dark')
+
+  if (isDark) {
+    html.classList.remove('dark')
+    localStorage.setItem('theme', 'light')
+  } else {
+    html.classList.add('dark')
+    localStorage.setItem('theme', 'dark')
+  }
 }
 
 const toggleSound = () => {

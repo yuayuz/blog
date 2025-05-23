@@ -10,7 +10,7 @@
         >
           <img :src="item.cover" class="h-48 w-full object-cover" />
           <div class="p-4">
-            <h2 class="text-xl font-semibold">{{ item.title }}</h2>
+            <h2 class="text-xl font-semibold dark:text-white">{{ item.title }}</h2>
             <p class="text-sm text-gray-600">{{ item.description }}</p>
           </div>
         </NuxtLink>
