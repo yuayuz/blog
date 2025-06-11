@@ -6,6 +6,7 @@
         :key="i"
         :src="img"
         class="mb-4 w-full break-inside-avoid rounded shadow"
+        loading="lazy"
         @click="openPreview(img)"
       />
     </div>
