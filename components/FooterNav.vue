@@ -44,17 +44,17 @@ const nav = [
     path: 'https://github.com/yuayuz?tab=overview&from=2025-05-01&to=2025-05-17',
   },
   {
+    name: 'timeline',
+    icon: 'audio-waveform',
+    color: 'hover:text-purple-500',
+    path: '/timeLine',
+  },
+  {
     name: 'Theme',
     icon: 'sun',
-    color: 'hover:text-purple-500',
+    color: 'hover:text-rose-500',
     action: () => toggleTheme(),
   },
-  // {
-  //   name: 'Sound',
-  //   icon: 'volume-2',
-  //   color: 'hover:text-rose-500',
-  //   action: () => toggleSound(),
-  // },
 ]
 
 // 悬停索引
