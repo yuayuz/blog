@@ -1,14 +1,16 @@
 <template>
   <div class="min-h-screen w-screen p-6">
-    <div class="columns-1 gap-4 space-y-4 sm:columns-2 md:columns-3">
-      <img
-        v-for="(img, i) in current?.images"
-        :key="i"
-        :src="img"
-        class="mb-4 w-full break-inside-avoid rounded shadow"
-        loading="lazy"
-        @click="openPreview(img)"
-      />
+    <div class="columns-1 gap-4 sm:columns-2 lg:columns-3">
+      <div v-for="(img, i) in current?.images" @click="openPreview(img)">
+        <NuxtImg
+          :key="i"
+          :src="img"
+          class="mb-4 w-full break-inside-avoid rounded shadow"
+          sizes="lg:33vw md:50vw sm:100vw"
+          placeholder
+          format="webp"
+        />
+      </div>
     </div>
 
     <!-- 预览层 -->
