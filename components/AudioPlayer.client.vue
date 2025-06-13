@@ -5,31 +5,32 @@
 </template>
 
 <script setup lang="ts">
-if (import.meta.client) {
-  // @ts-ignore
-  import('aplayer').then(({ default: APlayer }) => {
-    import('aplayer/dist/APlayer.min.css')
+import { onMounted } from 'vue'
 
-    onMounted(() => {
-      const ap = new APlayer({
-        container: document.getElementById('aplayer')!,
-        fixed: true,
-        autoplay: false,
-        audio: [
-          {
-            name: 'La gloire à mes genoux',
-            artist: 'Artist',
-            url: '/music/Le_rouge_et_le_noir/La gloire à mes genoux.mp3',
-            cover: '/music/Le_rouge_et_le_noir/Le_rouge_et_le_noir.png',
-          },
-          {
-            name: 'Ding Dong',
-            artist: 'Artist',
-            url: '/music/Le_rouge_et_le_noir/Ding Dong.mp3',
-            cover: '/music/Le_rouge_et_le_noir/Le_rouge_et_le_noir.png',
-          },
-        ],
-      })
+if (import.meta.client) {
+  onMounted(async () => {
+    //@ts-ignore
+    const { default: APlayer } = await import('aplayer')
+    await import('aplayer/dist/APlayer.min.css')
+
+    new APlayer({
+      container: document.getElementById('aplayer')!,
+      fixed: true,
+      autoplay: false,
+      audio: [
+        {
+          name: 'La gloire à mes genoux',
+          artist: 'Artist',
+          url: '/music/Le_rouge_et_le_noir/La gloire à mes genoux.mp3',
+          cover: '/music/Le_rouge_et_le_noir/Le_rouge_et_le_noir.png',
+        },
+        {
+          name: 'Ding Dong',
+          artist: 'Artist',
+          url: '/music/Le_rouge_et_le_noir/Ding Dong.mp3',
+          cover: '/music/Le_rouge_et_le_noir/Le_rouge_et_le_noir.png',
+        },
+      ],
     })
   })
 }
