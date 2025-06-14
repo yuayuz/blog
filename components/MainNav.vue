@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-20 flex w-screen justify-center">
+  <div class="fixed bottom-20 hidden w-screen justify-center md:flex">
     <nav
       class="fixed right-1/2 z-50 flex translate-x-1/2 space-x-3 rounded-full bg-white px-4 py-2 ring ring-gray-200 backdrop-blur-lg transition-transform duration-100 hover:scale-160 dark:bg-black/40"
     >
@@ -17,6 +17,65 @@
       </button>
     </nav>
     <AudioPlayer />
+  </div>
+  <div
+    class="fixed top-0 z-20 h-16 w-screen border-b border-gray-400 bg-white md:hidden dark:border-gray-700 dark:bg-[#010409]"
+  >
+    <div class="flex items-center justify-between p-4">
+      <div class="text-2xl text-black dark:text-white">谁是谁</div>
+      <button
+        class="flex h-fit w-fit items-center justify-center"
+        @click="open = !open"
+      >
+        <Icon
+          name="my-icon:square-menu"
+          class="h-8 w-8 text-black dark:text-gray-300"
+        ></Icon>
+      </button>
+    </div>
+  </div>
+  <div>
+    <div
+      v-if="open"
+      @click="open = false"
+      class="fixed inset-0 z-40 bg-black/40 md:hidden"
+    ></div>
+    <aside
+      class="fixed top-0 right-0 z-50 h-full w-1/2 transform bg-white shadow-md transition-transform duration-300 md:hidden dark:border-l dark:border-gray-700 dark:bg-[#010409]"
+      :class="{ 'translate-x-full': !open, 'translate-x-0': open }"
+    >
+      <div
+        class="flex h-16 items-center justify-end border-b border-gray-400 p-4 dark:border-gray-700"
+      >
+        <button @click="open = false" class="z-100 h-fit w-fit">
+          <Icon
+            name="my-icon:close"
+            class="h-8 w-8 text-black dark:text-gray-300"
+          ></Icon>
+        </button>
+      </div>
+      <div class="px-4">
+        <nav>
+          <button
+            v-for="(item, index) in nav"
+            :key="item.name"
+            class="flex h-10 w-full items-center justify-center text-black transition active:bg-gray-300 dark:text-white dark:active:bg-gray-700"
+            @click="
+              () => {
+                item.path ? goTo(item.path) : item.action?.()
+                open = false
+              }
+            "
+            :title="item.name"
+          >
+            <div class="px-3 py-2">
+              <Icon :name="'my-icon:' + item.icon"> </Icon>
+              {{ item.name }}
+            </div>
+          </button>
+        </nav>
+      </div>
+    </aside>
   </div>
 </template>
 <script setup lang="ts">
@@ -123,5 +182,7 @@ const toggleSound = () => {
   console.log('暂未实现声音切换')
   alert('暂未实现声音切换')
 }
+
+const open = ref(false)
 </script>
 <style></style>
