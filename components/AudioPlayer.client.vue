@@ -7,6 +7,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 
+const {
+  public: { OSS_BASE_URL },
+} = useRuntimeConfig()
+
 if (import.meta.client) {
   onMounted(async () => {
     //@ts-ignore
@@ -21,14 +25,14 @@ if (import.meta.client) {
         {
           name: 'La gloire à mes genoux',
           artist: 'Artist',
-          url: '/music/Le_rouge_et_le_noir/La gloire à mes genoux.mp3',
-          cover: '/music/Le_rouge_et_le_noir/Le_rouge_et_le_noir.png',
+          url: `${OSS_BASE_URL}/music/Le_rouge_et_le_noir/La gloire à mes genoux.mp3`,
+          cover: `${OSS_BASE_URL}/music/Le_rouge_et_le_noir/Le_rouge_et_le_noir.png`,
         },
         {
           name: 'Ding Dong',
           artist: 'Artist',
-          url: '/music/Le_rouge_et_le_noir/Ding Dong.mp3',
-          cover: '/music/Le_rouge_et_le_noir/Le_rouge_et_le_noir.png',
+          url: `${OSS_BASE_URL}/music/Le_rouge_et_le_noir/Ding Dong.mp3`,
+          cover: `${OSS_BASE_URL}/music/Le_rouge_et_le_noir/Le_rouge_et_le_noir.png`,
         },
       ],
     })

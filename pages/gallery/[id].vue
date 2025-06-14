@@ -5,9 +5,12 @@
         <NuxtImg
           :key="i"
           :src="img"
+          loading="lazy"
+          decoding="async"
           class="mb-4 w-full break-inside-avoid rounded shadow"
           sizes="lg:33vw md:50vw sm:100vw"
-          placeholder
+          :placeholder="false"
+          :alt="current?.id"
           format="webp"
         />
       </div>
@@ -26,12 +29,20 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import galleryList from '@/assets/data/gallery.json'
+import galleryList from '@/assets/data/gallery'
 import { ref, computed } from 'vue'
+const {
+  public: { OSS_BASE_URL },
+} = useRuntimeConfig()
 
+const fullList = galleryList.map((item) => ({
+  ...item,
+  cover: OSS_BASE_URL + item.cover,
+  images: item.images.map((img) => OSS_BASE_URL + img),
+}))
 const route = useRoute()
 const id = route.params.id as string
-const current = computed(() => galleryList.find((g) => g.id === id))
+const current = computed(() => fullList.find((g) => g.id === id))
 
 const preview = ref('')
 const openPreview = (src: string) => {

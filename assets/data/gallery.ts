@@ -1,6 +1,6 @@
-[
+const galleryList=[
   {
-    "id": "1",
+    "id": "xiHu",
     "title": "西湖",
     "description": "记录一次美好的游玩，累人也是真的累人",
     "cover": "/gallery/xi_hu/cover.webp",
@@ -33,7 +33,7 @@
     ]
   },
   {
-    "id": "2",
+    "id": "sky",
     "title": "sky",
     "description": "我真的很喜欢天空和云",
     "cover": "/gallery/sky/cover.webp",
@@ -127,3 +127,5 @@
     ]
   }
 ]
+
+export default galleryList

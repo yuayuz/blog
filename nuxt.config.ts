@@ -29,5 +29,10 @@ export default defineNuxtConfig({
     timeline: {
       enabled: true
     }
+  },
+  runtimeConfig: {
+    public: {
+      OSS_BASE_URL: process.env.OSS_BASE_URL
+    }
   }
 })
