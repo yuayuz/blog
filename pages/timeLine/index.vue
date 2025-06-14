@@ -44,6 +44,11 @@ export default {
           date: '2023年6月14日',
           description: '博客图片、多媒体等资源迁移到 OSS',
         },
+        {
+          title: '添加响应式导航栏',
+          date: '2023年6月14日',
+          description: '添加响应式导航栏以优化小屏显示体验',
+        },
       ],
     }
   },
