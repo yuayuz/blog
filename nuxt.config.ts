@@ -2,6 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  ssr:true,
   css: [
     '~/assets/css/main.css',
     '~/assets/styles/main.styl',  // 引入 Stylus 文件
