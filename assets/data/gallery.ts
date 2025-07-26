@@ -1,6 +1,6 @@
 const galleryList=[
   {
-    "id": "xiHu",
+    "id": "xi_hu",
     "title": "西湖",
     "description": "记录一次美好的游玩，累人也是真的累人",
     "cover": "/gallery/xi_hu/cover.webp",

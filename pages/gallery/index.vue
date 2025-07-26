@@ -3,12 +3,12 @@
     <div class="mx-auto p-6">
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <NuxtLink
-          v-for="item in fullList"
-          :key="item.id"
-          :to="`/gallery/${item.id}`"
+          v-for="(item, index) in gallery"
+          :key="item.name"
+          :to="`${item.name}`"
           class="overflow-hidden rounded-lg shadow transition hover:shadow-lg"
         >
-          <img :src="item.cover" class="h-48 w-full object-cover" />
+          <img :src="item.cover_image" class="h-48 w-full object-cover" />
           <div class="p-4">
             <h2 class="text-xl font-semibold dark:text-white">
               {{ item.title }}
@@ -24,12 +24,25 @@
 <script setup lang="ts">
 import galleryList from '@/assets/data/gallery'
 const {
-  public: { OSS_BASE_URL },
+  public: { API_BASE_URL, OSS_BASE_URL },
 } = useRuntimeConfig()
+
+interface GalleryItem {
+  title: string
+  description: string
+  cover_image: string
+  name: string
+}
 
 const fullList = galleryList.map((item) => ({
   ...item,
   cover: OSS_BASE_URL + item.cover,
   images: item.images.map((img) => OSS_BASE_URL + img),
 }))
+
+const {
+  data: gallery,
+  pending,
+  error,
+} = await useFetch<GalleryItem[]>(`${API_BASE_URL}/gallery`)
 </script>
