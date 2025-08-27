@@ -11,6 +11,21 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    server: {
+    proxy: {
+      '/api': {
+        target:  process.env.DEV_API_PROXY || 'http://localhost:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      }
+    }
+  }
+  },
+  runtimeConfig: {
+    public: {
+      OSS_BASE_URL: process.env.OSS_BASE_URL,
+      API_BASE_URL: process.env.API_BASE_URL || '/api',
+    },
   },
   modules: ['@nuxt/icon', '@nuxt/content', '@nuxt/image'],
   icon: {
@@ -29,13 +44,6 @@ export default defineNuxtConfig({
 
     timeline: {
       enabled: true
-    }
-  },
-  runtimeConfig: {
-    public: {
-      OSS_BASE_URL: process.env.OSS_BASE_URL,
-      API_BASE_URL: process.env.API_BASE_URL || 'http://localhost:3000',
-
     }
   }
 })

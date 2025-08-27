@@ -40,9 +40,7 @@ const fullList = galleryList.map((item) => ({
   images: item.images.map((img) => OSS_BASE_URL + img),
 }))
 
-const {
-  data: gallery,
-  pending,
-  error,
-} = await useFetch<GalleryItem[]>(`${API_BASE_URL}/gallery`)
+const { data: gallery, error } = await useFetch<GalleryItem[]>('/gallery', {
+  baseURL: import.meta.server ? 'http://127.0.0.1:8000' : '/api',
+})
 </script>
