@@ -16,7 +16,6 @@
         <Icon :name="'my-icon:' + item.icon"> </Icon>
       </button>
     </nav>
-    <AudioPlayer />
   </div>
   <div
     class="fixed top-0 z-20 h-16 w-screen border-b border-gray-400 bg-white md:hidden dark:border-gray-700 dark:bg-[#010409]"
@@ -80,7 +79,6 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import AudioPlayer from '~/components/AudioPlayer.client.vue'
 
 const nav = [
   { name: 'Home', icon: 'home', color: 'hover:text-red-500', path: '/' },
