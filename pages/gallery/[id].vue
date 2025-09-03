@@ -2,7 +2,7 @@
   <div class="min-h-screen w-screen p-6">
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div
-        v-for="(imgPath, i) in images"
+        v-for="(imgPath, i) in imagesList"
         :key="imgPath"
         @click="openPreview(imgPath)"
         class="overflow-hidden rounded shadow"
@@ -30,39 +30,34 @@
 </template>
 
 <script setup lang="ts">
-import type { RefSymbol } from '@vue/reactivity'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
 
 const {
   public: { API_BASE_URL },
 } = useRuntimeConfig()
-
 const route = useRoute()
 const id = route.params.id as string
 
-const images = ref<string[]>([])
 const page = ref(1)
 const pageSize = 9
 const loading = ref(false)
 const noMore = ref(false)
 
+type GalleryImage = string
+const imagesList = ref<GalleryImage[]>([])
+
 async function loadMore() {
   if (loading.value || noMore.value) return
   loading.value = true
 
-  const url = `${API_BASE_URL}/gallery/${id}/images?page=${page.value}&page_size=${pageSize}`
-  const res = await fetch(url)
-  if (!res.ok) {
-    loading.value = false
-    return
-  }
-  const newImages = (await res.json()) as string[]
+  const newImages = await $fetch<string[]>(`/api/gallery/${id}/images`, {
+    params: { page: page.value, page_size: pageSize },
+  })
 
-  if (newImages.length < pageSize) {
-    noMore.value = true
-  }
-  images.value.push(...newImages)
+  imagesList.value.push(...newImages)
+
+  if (newImages.length < pageSize) noMore.value = true
   page.value++
   loading.value = false
 }
@@ -88,5 +83,7 @@ onBeforeUnmount(() => {
 const preview = ref('')
 const openPreview = (src: string) => {
   preview.value = `${API_BASE_URL}/image/${src}`
+  // 使用 server 存在问题
+  // preview.value = `/api/image?src=${src}`
 }
 </script>
