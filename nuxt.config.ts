@@ -11,20 +11,14 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
-    server: {
-    proxy: {
-      '/api': {
-        target:  process.env.DEV_API_PROXY || 'http://localhost:8000',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      }
-    }
-  }
   },
   runtimeConfig: {
     public: {
       OSS_BASE_URL: process.env.OSS_BASE_URL,
-      API_BASE_URL: process.env.API_BASE_URL || '/api',
+      API_BASE_URL:
+        process.env.NODE_ENV === 'production'
+          ? process.env.PROD_API_BASE_URL
+          : process.env.DEV_API_BASE_URL,
     },
   },
   modules: ['@nuxt/icon', '@nuxt/content', '@nuxt/image'],
