@@ -21,7 +21,7 @@ export default defineNuxtConfig({
           : process.env.DEV_API_BASE_URL,
     },
   },
-  modules: ['@nuxt/icon', '@nuxt/content', '@nuxt/image'],
+  modules: ['@nuxt/icon', '@nuxt/content', '@nuxt/image','@pinia/nuxt'],
   icon: {
     mode: 'css',
     cssLayer: 'base',

@@ -12,14 +12,14 @@
     </div>
     <ul
       class="space-y-2 text-sm text-gray-600"
-      v-for="(item, index) in list"
+      v-for="(item, index) in postTypesStore.postTypeList"
       :key="index"
     >
       <li>
         <NuxtLink
           :to="{
-            path: `/blog/category-${item.dir}`,
-            query: { name: item.name },
+            path: `/blog/category-${item.type}`,
+            query: { name: String(item.name) },
           }"
           class="text-lg"
           :class="item.color"
@@ -34,13 +34,13 @@
     <div class="flex space-x-4">
       <div
         class="space-y-2 text-sm text-gray-700 dark:text-gray-400"
-        v-for="(item, index) in list"
+        v-for="(item, index) in postTypesStore.postTypeList"
         :key="index"
       >
         <NuxtLink
           :to="{
-            path: `/blog/category-${item.dir}`,
-            query: { name: item.name },
+            path: `/blog/category-${item.type}`,
+            query: { name: String(item.name) },
           }"
           class="text-lg"
           :class="item.color"
@@ -52,14 +52,9 @@
 </template>
 
 <script setup lang="ts">
-const list = [
-  { name: '技术笔记', dir: 'tech', color: 'hover:text-orange-500' },
-  { name: '日常随笔', dir: 'life', color: 'hover:text-green-500' },
-  { name: '学习笔记', dir: 'study', color: 'hover:text-sky-500' },
-  { name: '阅读分享', dir: 'reading', color: 'hover:text-purple-500' },
-  { name: '项目实践', dir: 'projects', color: 'hover:text-rose-500' },
-]
+const postTypesStore = usePostTypesStore()
 </script>
+
 <style>
 .custom-scroll {
   overflow-x: scroll;

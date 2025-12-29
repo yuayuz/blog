@@ -17,7 +17,12 @@ import { MainNav } from '../.nuxt/components';
     </div>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const postTypesStore = usePostTypesStore()
+if (!postTypesStore.postTypeList.length) {
+  await postTypesStore.fetchPostTypes()
+}
+</script>
 <style>
 @media (min-width: 768px) {
   .custom-scroll {
