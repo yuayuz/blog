@@ -3,7 +3,7 @@
     <div class="mx-auto p-6">
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <NuxtLink
-          v-for="(item, index) in gallery"
+          v-for="item in gallery"
           :key="item.name"
           :to="`${item.name}`"
           class="overflow-hidden rounded-lg shadow transition hover:shadow-lg"
@@ -22,11 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import galleryList from '@/assets/data/gallery'
-const {
-  public: { API_BASE_URL, OSS_BASE_URL },
-} = useRuntimeConfig()
-
 interface GalleryItem {
   title: string
   description: string
@@ -34,11 +29,9 @@ interface GalleryItem {
   name: string
 }
 
-const fullList = galleryList.map((item) => ({
-  ...item,
-  cover: OSS_BASE_URL + item.cover,
-  images: item.images.map((img) => OSS_BASE_URL + img),
-}))
-
 const { data: gallery, error } = await useFetch<GalleryItem[]>('/api/gallery')
+
+if (error.value) {
+  console.error('获取图片目录失败:', error.value)
+}
 </script>
