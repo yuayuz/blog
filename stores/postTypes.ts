@@ -15,7 +15,7 @@ export const usePostTypesStore = defineStore('postTypes', {
         'hover:text-rose-500'
       ]
 
-      const res = await $fetch<PostTypeItem[]>('/api/nav/primaryPostTypes')
+      const res = await $fetch<PostTypeItem[]>('/api/nav/allPostTypes')
 
       if (res) {
         this.postTypeList = res.map((item, index) => ({

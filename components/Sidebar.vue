@@ -12,13 +12,13 @@
     </div>
     <ul
       class="space-y-2 text-sm text-gray-600"
-      v-for="(item, index) in postTypesStore.postTypeList"
+      v-for="(item, index) in postTypeList"
       :key="index"
     >
       <li>
         <NuxtLink
           :to="{
-            path: `/blog/category-${item.type}`,
+            path: `/blog/category-${item.type_key}`,
             query: { name: String(item.name) },
           }"
           class="text-lg"
@@ -34,12 +34,12 @@
     <div class="flex space-x-4">
       <div
         class="space-y-2 text-sm text-gray-700 dark:text-gray-400"
-        v-for="(item, index) in postTypesStore.postTypeList"
+        v-for="(item, index) in postTypeList"
         :key="index"
       >
         <NuxtLink
           :to="{
-            path: `/blog/category-${item.type}`,
+            path: `/blog/category-${item.type_key}`,
             query: { name: String(item.name) },
           }"
           class="text-lg"
@@ -53,6 +53,22 @@
 
 <script setup lang="ts">
 const postTypesStore = usePostTypesStore()
+const route = useRoute()
+
+// 监听路由参数变化
+const category = computed(() => (route.params.group as string) || undefined)
+
+const postTypeList = computed<PostTypeItem[]>(() => {
+  if (category.value === undefined) {
+    return postTypesStore.postTypeList.filter(
+      (item) => item.parent_type === null
+    )
+  } else {
+    return postTypesStore.postTypeList.filter(
+      (item) => item.parent_type === category.value
+    )
+  }
+})
 </script>
 
 <style>
