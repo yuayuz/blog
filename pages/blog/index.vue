@@ -3,11 +3,7 @@
     {{ tag ? `${tag}` : '全部文章' }}
   </h1>
   <ul class="space-y-6">
-    <li
-      v-for="post in tag ? tagPosts : posts"
-      :key="post.id"
-      class="border-b pb-4"
-    >
+    <li v-for="post in posts" :key="post.id" class="border-b pb-4">
       <BlogPostItem :post="post" />
     </li>
   </ul>
@@ -19,15 +15,7 @@ definePageMeta({
 })
 const tag = route.query.tag as string
 
-const { data: posts } = await useAsyncData(() =>
-  queryCollection('content').order('date', 'DESC').all()
-)
-let tagPosts = null
-if (tag != null) {
-  tagPosts = computed(() =>
-    posts.value?.filter((post) => post.tags?.includes(tag))
-  )
-}
+const { data: posts, error } = await useFetch<BlogPost[]>('/api/nav/posts')
 
 useSeoMeta({})
 </script>
