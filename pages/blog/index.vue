@@ -13,9 +13,15 @@ const route = useRoute()
 definePageMeta({
   layout: 'side-nav',
 })
+
 const tag = route.query.tag as string
 
-const { data: posts, error } = await useFetch<BlogPost[]>('/api/nav/posts')
+// 根据 tag 是否存在来决定请求哪个 API
+const apiUrl = computed(() => {
+  return tag ? `/api/nav/posts/tag/${tag}` : '/api/nav/posts'
+})
+
+const { data: posts, error } = await useFetch<BlogPost[]>(apiUrl.value)
 
 useSeoMeta({})
 </script>

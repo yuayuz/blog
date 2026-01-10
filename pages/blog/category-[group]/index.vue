@@ -14,7 +14,7 @@ definePageMeta({
 const name = route.query.name as string
 const category = route.params.group as string
 const { data: posts, error } = await useFetch<BlogPost[]>(
-  `/api/nav/posts/${category}`
+  `/api/nav/posts/type/${category}`
 )
 
 useSeoMeta({})

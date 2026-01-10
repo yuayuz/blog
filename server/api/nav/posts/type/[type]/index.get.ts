@@ -4,6 +4,6 @@ export default defineEventHandler(async (event) => {
   const type = event.context.params?.type
 
   return await $fetch<BlogPost[]>(
-    `${config.public.API_BASE_URL}/blog/posts/${type}`
+    `${config.public.API_BASE_URL}/blog/posts/type/${type}`
   )
 })
