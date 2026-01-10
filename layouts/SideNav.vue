@@ -2,7 +2,7 @@ import { MainNav } from '../.nuxt/components';
 <template>
   <div class="h-screen bg-gray-100/40 dark:bg-black">
     <div
-      class="mx-auto h-screen max-w-6xl pt-16 md:flex md:gap-8 md:p-16 md:py-10"
+      class="mx-auto h-screen max-w-3/5 pt-16 md:flex md:gap-8 md:p-16 md:py-10"
     >
       <aside class="md:top-24 md:flex md:w-64">
         <Sidebar />

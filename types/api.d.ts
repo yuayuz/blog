@@ -21,3 +21,22 @@ interface BlogPost {
   meta_description: string | null
   keywords: string | null
 }
+
+interface ArticleFrontMatter {
+  title: string
+  description?: string
+  date: string
+  category?: string
+  tags?: string[]
+}
+
+interface ArticleResponse {
+  front_matter: ArticleFrontMatter | null
+  content: string // markdown 正文
+}
+
+interface Article {
+  meta: ArticleFrontMatter
+  markdown: string
+  html: string
+}

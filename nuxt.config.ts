@@ -1,16 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  ssr:true,
+  ssr: true,
   css: [
     '~/assets/css/main.css',
-    '~/assets/styles/main.styl',  // 引入 Stylus 文件
+    '~/assets/styles/main.styl', // 引入 Stylus 文件
+    'github-markdown-css/github-markdown.css',
+    'github-markdown-css/github-markdown-dark.css',
   ],
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
   },
   runtimeConfig: {
     public: {
@@ -21,14 +21,14 @@ export default defineNuxtConfig({
           : process.env.DEV_API_BASE_URL,
     },
   },
-  modules: ['@nuxt/icon', '@nuxt/content', '@nuxt/image','@pinia/nuxt'],
+  modules: ['@nuxt/icon', '@nuxt/content', '@nuxt/image', '@pinia/nuxt'],
   icon: {
     mode: 'css',
     cssLayer: 'base',
     customCollections: [
       {
         prefix: 'my-icon',
-        dir: './assets/my-icons'
+        dir: './assets/my-icons',
       },
     ],
   },
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     enabled: true,
 
     timeline: {
-      enabled: true
-    }
-  }
+      enabled: true,
+    },
+  },
 })

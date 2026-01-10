@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    :to="`/blog/category-${post.type}/${post.id}`"
+    :to="`/blog/category-${post.type}/${post.title}`"
     class="text-xl hover:underline"
   >
     {{ post.title }}
