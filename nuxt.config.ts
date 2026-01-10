@@ -5,9 +5,8 @@ export default defineNuxtConfig({
   ssr: true,
   css: [
     '~/assets/css/main.css',
+    '~/assets/css/github-markdown.css',
     '~/assets/styles/main.styl', // 引入 Stylus 文件
-    'github-markdown-css/github-markdown.css',
-    'github-markdown-css/github-markdown-dark.css',
   ],
   vite: {
     plugins: [tailwindcss()],

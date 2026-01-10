@@ -17,21 +17,31 @@
       {{ data?.meta.date }}
     </p>
 
-    <hr
-      class="mb-6 border-t border-dashed border-gray-500 dark:border-gray-600"
-    />
-
-    <article
-      class="markdown-body dark:markdown-body-dark"
-      style="flex: 1"
-      v-html="data?.html"
-    ></article>
+    <article :class="isDark ? 'markdown-dark' : 'markdown-light'">
+      <div class="markdown-body" v-html="data?.html"></div>
+    </article>
   </div>
 </template>
 <script setup lang="ts">
 definePageMeta({
   layout: 'side-nav',
 })
+
+const isDark = ref(false)
+
+if (import.meta.client) {
+  isDark.value = document.documentElement.classList.contains('dark')
+
+  // 监听 class 变化
+  const observer = new MutationObserver(() => {
+    isDark.value = document.documentElement.classList.contains('dark')
+  })
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  })
+}
 
 const route = useRoute()
 
