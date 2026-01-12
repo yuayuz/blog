@@ -40,3 +40,14 @@ interface Article {
   markdown: string
   html: string
 }
+
+interface TimeLineItem {
+  id: number
+  happened_at: string
+  title: string
+  note: string | null
+  type: String
+  mood: string | null
+  created_at: string
+}
+
