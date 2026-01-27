@@ -22,6 +22,13 @@
 </template>
 
 <script setup lang="ts">
+useSeoMeta({
+  title: '摄影',
+  description: '这里记录了我拍摄的照片，包含生活、城市与日常瞬间。',
+  ogTitle: '摄影作品',
+  ogDescription: '个人摄影记录与图片集',
+  ogType: 'website',
+})
 interface GalleryItem {
   title: string
   description: string

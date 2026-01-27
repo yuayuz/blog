@@ -37,6 +37,16 @@ const {
   public: { API_BASE_URL },
 } = useRuntimeConfig()
 const route = useRoute()
+const albumTitle = `摄影集 · ${route.params.id}`
+
+useSeoMeta({
+  title: albumTitle,
+  description: '个人摄影记录与图片集',
+
+  ogTitle: albumTitle,
+  ogDescription: '个人摄影记录与图片集',
+  ogType: 'article',
+})
 const id = route.params.id as string
 
 const page = ref(1)

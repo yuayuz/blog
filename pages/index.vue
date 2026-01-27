@@ -5,5 +5,10 @@
     谁是谁
   </h1>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+  title: '首页',
+  description: '记录，而不是遗忘',
+})
+</script>
 <style></style>

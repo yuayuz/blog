@@ -53,6 +53,21 @@ const { data } = await useAsyncData('article', async () => {
   return toArticle(resp)
 })
 
+const meta = data.value?.meta
+
+useSeoMeta({
+  title: meta?.title,
+  description: meta?.description,
+
+  ogTitle: meta?.title,
+  ogDescription: meta?.description,
+  ogType: 'article',
+
+  articlePublishedTime: meta?.date,
+  articleSection: meta?.category,
+  articleTag: meta?.tags,
+})
+
 const tagColors = [
   'bg-blue-100 text-blue-800 hover:bg-blue-200',
   'bg-green-100 text-green-800 hover:bg-green-200',

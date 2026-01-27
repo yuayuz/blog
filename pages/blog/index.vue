@@ -9,6 +9,12 @@
   </ul>
 </template>
 <script setup lang="ts">
+useSeoMeta({
+  title: '博客',
+  description: '一年匆匆忙忙，没有记录有能留下什么呢',
+  ogTitle: '博客文章列表',
+  ogType: 'website',
+})
 const route = useRoute()
 definePageMeta({
   layout: 'side-nav',

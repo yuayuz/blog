@@ -16,11 +16,11 @@
 import { useHead } from '#imports'
 
 useHead({
-  title: '时间轴 - 我的博客',
+  title: '时间轴',
   meta: [
     {
       name: 'description',
-      content: '我的博客发展历程时间轴',
+      content: '拒绝遗忘',
     },
   ],
 })
