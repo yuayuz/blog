@@ -10,5 +10,7 @@ useSeoMeta({
   title: '首页',
   description: '记录，而不是遗忘',
 })
+console.log('NODE_ENV', process.env.NODE_ENV)
+console.log('API', useRuntimeConfig().public.API_BASE_URL)
 </script>
 <style></style>

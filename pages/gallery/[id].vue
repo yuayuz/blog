@@ -9,7 +9,7 @@
       >
         <div class="aspect-[4/3] bg-gray-100">
           <img
-            :src="`${API_BASE_URL}/image/${imgPath}`"
+            :src="`${API_BASE_URL}/rust/image/${imgPath}`"
             loading="lazy"
             decoding="async"
             class="block h-full w-full object-cover"
@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
 
 const preview = ref('')
 const openPreview = (src: string) => {
-  preview.value = `${API_BASE_URL}/image/${src}`
+  preview.value = `${API_BASE_URL}/rust/image/${src}`
   // 使用 server 存在问题
   // preview.value = `/api/image?src=${src}`
 }

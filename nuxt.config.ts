@@ -17,10 +17,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       OSS_BASE_URL: process.env.OSS_BASE_URL,
-      API_BASE_URL:
-        process.env.NODE_ENV === 'production'
-          ? process.env.PROD_API_BASE_URL
-          : process.env.DEV_API_BASE_URL,
+      API_BASE_URL: process.env.API_BASE_URL,
     },
   },
 
