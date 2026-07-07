@@ -4,6 +4,6 @@ export default defineEventHandler(async (event) => {
   const tag = event.context.params?.tag
 
   return await $fetch<BlogPost[]>(
-    `${config.public.API_BASE_URL}/rust/blog/posts/tag/${tag}`
+    `${config.public.API_BASE_URL}/blog/posts/tag/${tag}`
   )
 })

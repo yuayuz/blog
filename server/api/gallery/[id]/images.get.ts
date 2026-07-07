@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
 
   const res = await $fetch(
-    `${config.public.API_BASE_URL}/rust/gallery/${id}/images`,
+    `${config.public.API_BASE_URL}/gallery/${id}/images`,
     {
       params: query,
     }

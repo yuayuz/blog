@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig()
   const buffer = await $fetch<ArrayBuffer>(
-    `${config.public.API_BASE_URL}/rust/image/${src}`
+    `${config.public.API_BASE_URL}/image/${src}`
   )
   return buffer
 })
