@@ -11,11 +11,6 @@
         {{ tag }}
       </NuxtLink>
     </div>
-    <h1 class="mb-4 text-3xl font-bold">{{ data?.meta.title }}</h1>
-
-    <p class="mb-6 text-sm text-gray-500">
-      {{ data?.meta.date }}
-    </p>
 
     <article :class="isDark ? 'markdown-dark' : 'markdown-light'">
       <div class="markdown-body" v-html="data?.html"></div>
