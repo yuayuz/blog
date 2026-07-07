@@ -9,7 +9,7 @@
       >
         <div class="aspect-[4/3] bg-gray-100">
           <img
-            :src="`${API_BASE_URL}/rust/image/${imgPath}`"
+            :src="`${API_BASE_URL}/image/${imgPath}`"
             loading="lazy"
             decoding="async"
             class="block h-full w-full object-cover"
