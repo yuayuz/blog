@@ -2,14 +2,16 @@ import { MainNav } from '../.nuxt/components';
 <template>
   <div class="h-screen bg-gray-100/40 dark:bg-black">
     <div
-      class="mx-auto h-screen max-w-3/5 pt-16 md:flex md:gap-8 md:p-16 md:py-10"
+      class="mx-auto h-screen w-full max-w-7xl pt-16 md:flex md:gap-8 md:px-8 md:py-10"
     >
-      <aside class="md:top-24 md:flex md:w-64">
+      <aside
+        class="md:sticky md:top-24 md:flex md:h-fit md:w-56 md:shrink-0 lg:w-64"
+      >
         <Sidebar />
       </aside>
 
       <main
-        class="custom-scroll w-full flex-1 overflow-y-auto px-6 max-md:pt-4 md:py-8 dark:text-gray-400"
+        class="custom-scroll min-w-0 flex-1 overflow-y-auto px-4 max-md:pt-4 sm:px-6 md:py-8 dark:text-gray-400"
       >
         <slot />
       </main>
