@@ -1,4 +1,5 @@
 <template>
+  <NuxtLink to="/blog/upload" class="float-right text-sm text-gray-500 hover:underline">上传文章</NuxtLink>
   <h1 class="mb-4 text-2xl font-bold">
     {{ tag ? `${tag}` : '全部文章' }}
   </h1>
